@@ -7,7 +7,7 @@ from loguru import logger
 import requests
 
 sys.path.append(os.path.dirname(__file__) + "/..")
-from lib.baseWebsocket import ExchangeWebsocket
+from _lib.baseWebsocket import ExchangeWebsocket
 from websockets.protocol import State
 
 

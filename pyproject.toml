@@ -52,11 +52,11 @@ dev = [
 exchange-websocket = "exchange_websocket.cli:main"
 
 [tool.setuptools]
-packages = ["exchange_websocket", "exchange_websocket.exchanges", "exchange_websocket.lib"]
+packages = ["exchange_websocket", "exchange_websocket.exchange", "exchange_websocket.lib"]
 
 [tool.setuptools.package-dir]
 "exchange_websocket" = "."
-"exchange_websocket.exchanges" = "exchange"
+"exchange_websocket.exchange" = "exchange"
 "exchange_websocket.lib" = "lib"
 
 [tool.black]

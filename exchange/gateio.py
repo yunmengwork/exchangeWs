@@ -4,7 +4,7 @@ import os
 import json
 
 sys.path.append(os.path.dirname(__file__) + "/..")
-from lib.baseWebsocket import ExchangeWebsocket
+from _lib.baseWebsocket import ExchangeWebsocket
 
 
 if __name__ == "__main__":

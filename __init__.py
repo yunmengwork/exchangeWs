@@ -9,7 +9,7 @@ __version__ = "0.1.0"
 __author__ = "yunmengwork"
 __email__ = "yunmengwork2940494978@gmail.com"
 
-from .lib.baseWebsocket import ExchangeWebsocket
+from ._lib.baseWebsocket import ExchangeWebsocket
 from .exchange.okx import Okx
 from .exchange.binance import Binance
 from .exchange.bitget import Bitget
