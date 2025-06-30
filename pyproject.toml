@@ -1,0 +1,99 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exchange-websocket"
+version = "0.1.0"
+authors = [
+    {name = "yunmengwork", email = "yunmengwork2940494978@gmail.com"},
+]
+description = "A Python package for connecting to cryptocurrency exchange WebSocket APIs"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["cryptocurrency", "websocket", "trading", "api", "binance", "okx", "bitget", "bybit", "gateio"]
+dependencies = [
+    "websockets>=11.0",
+    "loguru>=0.7.0",
+    "requests>=2.28.0",
+    "asyncio-mqtt>=0.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-asyncio>=0.18.0",
+    "black>=22.0",
+    "flake8>=4.0",
+    "mypy>=0.900",
+    "pre-commit>=2.20.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/exchange-websocket"
+"Bug Reports" = "https://github.com/yourusername/exchange-websocket/issues"
+"Source" = "https://github.com/yourusername/exchange-websocket"
+
+[project.scripts]
+exchange-websocket = "exchange_websocket.cli:main"
+
+[tool.setuptools]
+packages = ["exchange_websocket", "exchange_websocket.exchanges", "exchange_websocket.lib"]
+
+[tool.setuptools.package-dir]
+"exchange_websocket" = "."
+"exchange_websocket.exchanges" = "exchange"
+"exchange_websocket.lib" = "lib"
+
+[tool.black]
+line-length = 88
+target-version = ['py38', 'py39', 'py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+asyncio_mode = "auto"
